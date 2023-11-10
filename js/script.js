@@ -1,28 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const menuItems = document.querySelectorAll('.menu-item');
+  // Adiciona um ouvinte de evento a todos os links do menu
+  var links = document.querySelectorAll('.sidebar a');
 
-  menuItems.forEach(item => {
-    item.addEventListener('mouseover', function () {
-      const subMenu = item.querySelector('.sub-menu');
-      if (subMenu) {
-        subMenu.style.display = 'block';
-      }
-    });
+  links.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
 
-    item.addEventListener('mouseout', function () {
-      const subMenu = item.querySelector('.sub-menu');
-      if (subMenu) {
-        subMenu.style.display = 'none';
-      }
-    });
+      // Obtém o destino do link
+      var targetId = this.getAttribute('href').substring(1);
+      var targetElement = document.getElementById(targetId);
 
-    item.addEventListener('click', function () {
-      const sectionId = item.getAttribute('data-section');
-      const content = document.getElementById(sectionId);
-      const container = document.querySelector('.container');
+      // Calcula a posição do elemento em relação ao topo da página
+      var offsetTop = targetElement.offsetTop;
 
-      container.style.marginLeft = `-${content.offsetLeft}px`;
+      // Calcula a posição ajustada para centralizar o elemento na janela
+      var windowHeight = window.innerHeight;
+      var targetHeight = targetElement.offsetHeight;
+      var scrollTo = offsetTop - (windowHeight - targetHeight) / 2;
+
+      // Rola suavemente até a posição ajustada
+      window.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth'
+      });
     });
   });
 });
-  
