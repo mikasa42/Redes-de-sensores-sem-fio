@@ -19,14 +19,16 @@ body{
   height: 100%;
   background:#E6E6FA;
   transition: all .5s ease;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ebe8e8 rgb(90, 116, 190);
 }
 .sidebar header{
   font-size: 18px;
   color: white;
-  /*text-align: center;*/
   padding-left: 5vh;
   line-height: 70px;
-  background:rgb(90, 116, 190);;
+  background:rgb(90, 116, 190);
   user-select: none;
 
 }
@@ -57,7 +59,7 @@ ul li:hover a{
 label #btn, label #cancelar{
   position: absolute;
   cursor: pointer;
-  background:rgb(90, 116, 190);;
+  background:rgb(90, 116, 190);
   border-radius: 3px;
 }
 label #btn{
@@ -86,7 +88,9 @@ label #cancelar{
 
 }
 #check:checked ~ label #cancelar{
-  left:195px;
+  left:22%;
+  position: fixed;
+ 
 }
 
 #check:checked ~ .corpo{
