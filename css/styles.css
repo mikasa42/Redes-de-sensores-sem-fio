@@ -151,3 +151,7 @@ td{
 tr:hover{
   background-color:rgb(90, 116, 190);
 }
+figcaption{
+  color: #E6E6FA;
+  font-size: 12px;
+}
